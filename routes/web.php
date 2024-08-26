@@ -26,3 +26,10 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/user', [UserController::class, 'index']);
 
 Route::get('/categoria', [CategoriaController::class, 'index'])->name('categoria.index');
+
+Route::get('/categoria/create', [CategoriaController::class, 'create'])->name('categoria.create');
+
+Route::get('categoria/{id}', [CategoriaController::class, 'show'])->name('categoria.show');
+
+Route::post('/categoria', [CategoriaController::class, 'store'])->name('categoria.store');
+
