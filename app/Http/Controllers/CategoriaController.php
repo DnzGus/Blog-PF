@@ -12,7 +12,7 @@ class CategoriaController extends Controller
      */
     public function index()
     {
-        $categorias = Categoria::orderBy('name','ASC')->get();
+        $categorias = Categoria::orderBy('id','ASC')->get();
         return view('categoria.categoria_index', compact('categorias'));
 
     }
@@ -82,6 +82,6 @@ class CategoriaController extends Controller
     {
         $categoria = Categoria::find($id);
         $categoria->delete();
-        return redirect()->route('categoria.index')->with('mensagem','Categoria excluida com sucesso!');
+        return redirect()->route('categoria.index')->with('exclusao','Categoria excluida com sucesso!');
     }
 }
