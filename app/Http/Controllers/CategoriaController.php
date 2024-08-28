@@ -38,7 +38,7 @@ class CategoriaController extends Controller
         $categoria->name = $request->name;
         $categoria->save();
     
-        return redirect()->route('categoria.index');
+        return redirect()->route('categoria.index')->with('mensagem','Categoria criada com sucesso!');
     }
 
     /**
@@ -53,24 +53,35 @@ class CategoriaController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Categoria $categoria)
+    public function edit(string $id)
     {
-        //
+        $categoria = Categoria::find($id);
+        return view('categoria.categoria_edit', compact('categoria'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Categoria $categoria)
+    public function update(Request $request, string $id)
     {
-        //
+        $validated = $request->validate([
+            'name' => 'required|min:5',
+            ]);
+
+        $categoria = Categoria::find($id);
+        $categoria->name = $request->name;
+        $categoria->save();
+    
+        return redirect()->route('categoria.index')->with('mensagem','Categoria alterada com sucesso!');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Categoria $categoria)
+    public function destroy(string $id)
     {
-        //
+        $categoria = Categoria::find($id);
+        $categoria->delete();
+        return redirect()->route('categoria.index')->with('mensagem','Categoria excluida com sucesso!');
     }
 }
