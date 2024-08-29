@@ -28,7 +28,7 @@
                                     <th scope="row">{{$value->id}}</th>
                                     <td>{{$value->name}}</td>
                                     <td class="d-flex justify-content-around">
-                                        <a class="btn btn-primary" href="{{ url('/categoria/'.$value->id)}}" role="button">Vizualizar</a>
+                                        <a class="btn btn-primary" href="{{ url('/categoria/'.$value->id)}}" role="button">Visualizar</a>
                                         <a class="btn btn-warning" href="{{ url('/categoria/'.$value->id.'/edit')}}" role="button">Editar</a>
                                         <form method="POST" action='{{ url('/categoria/' . $value->id)}}'>
                                             @method('DELETE')
