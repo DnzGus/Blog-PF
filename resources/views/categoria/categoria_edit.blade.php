@@ -13,6 +13,11 @@
                 </ul>
             </div>
           @endif
+            <div class="text-left my-3">
+              <form action='{{ url('/categoria')}}'>
+                  <input class="btn btn-secondary" role="button" value="Retornar" type="submit" ></input>
+              </form>
+            </div>
             <form class="my-3" method="POST" action="{{ url('/categoria/'.$categoria->id)}}">
               @method('PUT')
               @csrf

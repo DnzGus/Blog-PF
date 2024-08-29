@@ -13,13 +13,20 @@
                 </ul>
             </div>
           @endif
-              <form method="POST" action="{{ url('/categoria')}}">
+            <div class="text-left my-3">
+              <form action='{{ url('/categoria')}}'>
+                <input class="btn btn-secondary" role="button" value="Retornar" type="submit" ></input>
+              </form>
+            </div>
+            <form class="my-3" method="POST" action="{{ url('/categoria')}}">
               @csrf
               <div class="mb-3">
-                <label for="name" class="form-label">Categoria</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" name="name">
+                <label for="name" class="form-label">Digite o nome da categoria:</label>
+                <input placeholder="Categoria" type="text" class="form-control" id="exampleInputEmail1" name="name">
               </div>
-              <button type="submit" class="btn btn-primary">Enviar</button>
+              <div class="text-right">
+                <button type="submit" class="btn btn-success">Criar</button>
+              </div>
             </form>
         </div>
     </div>

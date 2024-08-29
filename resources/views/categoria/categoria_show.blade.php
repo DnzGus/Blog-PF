@@ -4,6 +4,11 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
+            <div class="text-left my-3">
+                <form action='{{ url('/categoria')}}'>
+                    <input class="btn btn-secondary" role="button" value="Retornar" type="submit" ></input>
+                </form>
+            </div>
                 <table class="table my-5">
                         <thead>
                             <tr>
