@@ -14,7 +14,7 @@
                         {{session('exclusao')}}
                     </div>
                 @endif
-                    <table class="table">
+                    <table class="table my-5">
                         <thead>
                             <tr>
                                 <th>ID</th>

@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
           @if ($errors->any())
-            <div class="alert alert-danger">
+            <div class="alert alert-danger my-3">
                 <ul>
                     @foreach ($errors->all() as $error)
                         <li>{{ $error }}</li>
@@ -13,14 +13,16 @@
                 </ul>
             </div>
           @endif
-            <form method="POST" action="{{ url('/categoria/'.$categoria->id)}}">
+            <form class="my-3" method="POST" action="{{ url('/categoria/'.$categoria->id)}}">
               @method('PUT')
               @csrf
               <div class="mb-3">
-                <label for="name" class="form-label">Categoria</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" name="name" value={{ $categoria->nome }}>
+                <label for="name" class="form-label">Digite o nome da categoria:</label>
+                <input placeholder="Categoria" type="text" class="form-control" id="exampleInputEmail1" name="name" value={{ $categoria->nome }}>
               </div>
-              <button type="submit" class="btn btn-primary">Enviar</button>
+              <div class="text-right">
+                <button type="submit" class="btn btn-success">Editar</button>
+              </div>
             </form>
         </div>
     </div>

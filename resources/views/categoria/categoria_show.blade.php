@@ -4,8 +4,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
-                <table class="table">
+                <table class="table my-5">
                         <thead>
                             <tr>
                                 <th>ID</th>
@@ -28,7 +27,6 @@
                                 </tr>
                         </tbody>
                     </table>
-            </div>
         </div>
     </div>
 </div>
