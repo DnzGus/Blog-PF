@@ -14,6 +14,8 @@
                             <tr>
                                 <th>ID</th>
                                 <th>Name</th>
+                                <th>Criação</th>
+                                <th>Ultima atualização</th>
                                 <th class="text-center">Ação</th>
                             </tr>
                         </thead>
@@ -21,6 +23,8 @@
                                 <tr>
                                     <th scope="row">{{$categoria->id}}</th>
                                     <td>{{$categoria->name}}</td>
+                                    <td>{{$categoria->created_at}}</td>
+                                    <td>{{$categoria->updated_at}}</td>
                                     <td class="d-flex justify-content-around">
                                         <a class="btn btn-warning" href="{{ url('/categoria/'.$categoria->id.'/edit')}}" role="button">Editar</a>
                                         <form method="POST" action='{{ url('/categoria/' . $categoria->id)}}'>
@@ -31,7 +35,7 @@
                                     </td>
                                 </tr>
                         </tbody>
-                    </table>
+                </table>
         </div>
     </div>
 </div>
