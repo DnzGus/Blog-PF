@@ -33,8 +33,11 @@ Route::post('/categoria', [CategoriaController::class, 'store'])->name('categori
 
 Route::get('/categoria/{id}', [CategoriaController::class, 'show'])->name('categoria.show');
 
+Route::get('/categoria/confirm/{id}', [CategoriaController::class, 'confirm'])->name('categoria.confirm');
+
 Route::get('/categoria/{id}/edit', [CategoriaController::class, 'edit'])->name('categoria.edit');
 
 Route::put('/categoria/{id}', [CategoriaController::class, 'update'])->name('categoria.update');
 
 Route::delete('/categoria/{id}', [CategoriaController::class, 'destroy'])->name('categoria.destroy');
+

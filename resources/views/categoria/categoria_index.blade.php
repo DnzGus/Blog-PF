@@ -30,8 +30,7 @@
                                 <td class="d-flex justify-content-around">
                                     <a class="btn btn-primary" href="{{ url('/categoria/'.$value->id)}}" role="button">Visualizar</a>
                                     <a class="btn btn-warning" href="{{ url('/categoria/'.$value->id.'/edit')}}" role="button">Editar</a>
-                                    <form method="POST" action='{{ url('/categoria/' . $value->id)}}'>
-                                        @method('DELETE')
+                                    <form method="GET" action='{{ url('/categoria/confirm/' . $value->id)}}'>
                                         @csrf
                                         <input class="btn btn-danger" role="button" value="Excluir" type="submit" ></input>
                                     </form>
