@@ -1,11 +1,15 @@
 @extends('adminlte::page')
-
+<script>
+    const ConfirmDelete = () => {
+        return confirm('Deseja excluir este registro?');
+    }
+</script>
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="text-left my-3">
-                <form action='{{ url('/categoria')}}'>
+                <form action='{{ url('/postagem')}}'>
                     <input class="btn btn-secondary" role="button" value="Retornar" type="submit" ></input>
                 </form>
             </div>
@@ -20,12 +24,13 @@
                         </thead>
                         <tbody>
                                 <tr>
-                                    <th scope="row">{{$postagem->categoria->nome}}</th>
+                                    <th scope="row">{{$postagem->categoria->name}}</th>
                                     <td>{{$postagem->titulo}}</td>
                                     <td>{{$postagem->user->name}}</td>
                                     <td class="d-flex justify-content-around">
                                     <a class="btn btn-warning" href="{{ url('/postagem/'.$postagem->id.'/edit')}}" role="button">Editar</a>
-                                    <form method="GET" action='{{ url('/postagem/confirm/' . $postagem->id)}}'>
+                                    <form method="POST" action='{{ url('/postagem/' . $postagem->id)}}' onsubmit="return ConfirmDelete()">
+                                        @method('DELETE')
                                         @csrf
                                         <input class="btn btn-danger" role="button" value="Excluir" type="submit" ></input>
                                     </form>

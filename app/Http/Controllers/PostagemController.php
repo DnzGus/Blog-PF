@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Categoria;
 use Illuminate\Support\Facades\Auth;
 
+
 class PostagemController extends Controller
 {
     /**
@@ -34,7 +35,7 @@ class PostagemController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'categoria_id' => 'required|',
+            'categoria_id' => 'required',
             'titulo' => 'required|min:5',
             'conteudo' => 'required|min:5',
             ]);
@@ -63,11 +64,6 @@ class PostagemController extends Controller
      */
     public function edit(string $id)
     {
-        $validated = $request->validate([
-            'categoria_id' => 'required|',
-            'titulo' => 'required|min:5',
-            'conteudo' => 'required|min:5',
-            ]);
 
         $categorias = Categoria::orderBy('name','ASC')->get();
         $postagem = Postagem::find($id);
@@ -80,11 +76,16 @@ class PostagemController extends Controller
     public function update(Request $request, string $id)
     {
         $validated = $request->validate([
-            'name' => 'required|min:5',
+            'categoria_id' => 'required|',
+            'titulo' => 'required|min:5',
+            'conteudo' => 'required|min:5',
             ]);
 
         $postagem = Postagem::find($id);
+        $postagem->categoria_id = $request->categoria_id;
+        $postagem->user_id = Auth::id();
         $postagem->titulo = $request->titulo;
+        $postagem->conteudo = $request->conteudo;
         $postagem->save();
     
         return redirect()->route('postagem.index')->with('mensagem','Postagem alterada com sucesso!');

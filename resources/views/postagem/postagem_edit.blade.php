@@ -21,22 +21,24 @@
             <form class="my-3" method="POST" action="{{ url('/postagem/'.$postagem->id)}}">
               @method('PUT')
               @csrf
-              <div class="mb-3">
-                <label for="exampleFormControlSelect1">Example select</label>
-                  <select class="form-control" id="exampleFormControlSelect1">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                  </select>
-                <label for="titulo" class="form-label">Digite o titulo:</label>
-                <input placeholder="Categoria" type="text" class="form-control" id="exampleInputEmail1" name="titulo">
-                <label for="exampleFormControlTextarea1">Digite o conteúdo</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-              </div>
               <div class="text-right">
                 <button type="submit" class="btn btn-success">Finalizar</button>
+              </div>
+              <div class="mb-3">
+                <label for="categoria_id">Escolha a categoria:</label>
+                  <select name="categoria_id" class="form-control" id="">
+                    @foreach($categorias as $value)
+                    @if($value->id == $postagem->categoria_id)
+                    <option selected='selected' value="{{$value->id}}">{{$value->name}}</option>
+                    @else
+                    <option value="{{$value->id}}">{{$value->name}}</option>
+                    @endif
+                    @endforeach
+                  </select>
+                <label for="titulo" class="form-label">Digite o titulo:</label>
+                <input placeholder="{{$postagem->titulo}}" type="text" class="form-control" id="exampleInputEmail1" name="titulo">
+                <label for="conteudo">Digite o conteúdo</label>
+                <textarea name="conteudo" class="form-control" id="conteudo" rows="3">{{$postagem->conteudo}}</textarea>
               </div>
             </form>
         </div>

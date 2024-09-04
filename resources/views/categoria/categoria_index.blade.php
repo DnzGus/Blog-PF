@@ -30,10 +30,10 @@
                                 <td class="d-flex justify-content-around">
                                     <a class="btn btn-primary" href="{{ url('/categoria/'.$value->id)}}" role="button">Visualizar</a>
                                     <a class="btn btn-warning" href="{{ url('/categoria/'.$value->id.'/edit')}}" role="button">Editar</a>
-                                    <form method="POST" action='{{ url('/categoria/' . $value->id)}}'>
+                                    <form method="POST" action='{{ url('/categoria/' . $value->id)}}' onsubmit="return ConfirmDelete()">
                                         @method('DELETE')
                                         @csrf
-                                        <input class="btn btn-danger" role="button" value="Excluir" type="submit" ></input>
+                                        <input class="btn btn-danger" role="button" value="Excluir" type="submit"></input>
                                     </form>
                                 </td>
                             </tr>
@@ -46,5 +46,10 @@
         </div>
     </div>
 </div>
+<script>
+        const ConfirmDelete = () => {
+            return confirm('Deseja excluir este registro?');
+        }
+    </script>
 @endsection
 
