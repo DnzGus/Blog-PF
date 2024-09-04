@@ -324,6 +324,11 @@ return [
         ],
         ['header' => 'account_settings'],
         [
+            'text' => 'Postagens',
+            'url' => 'postagem',
+            'icon' => 'fas fa-fw fa-user',
+        ],
+        [
             'text' => 'Categorias',
             'url' => 'categoria',
             'icon' => 'fas fa-fw fa-user',

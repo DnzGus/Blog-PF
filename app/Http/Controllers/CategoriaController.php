@@ -55,6 +55,10 @@ class CategoriaController extends Controller
      */
     public function edit(string $id)
     {
+        $validated = $request->validate([
+            'name' => 'required|min:5',
+            ]);
+
         $categoria = Categoria::find($id);
         return view('categoria.categoria_edit', compact('categoria'));
     }
