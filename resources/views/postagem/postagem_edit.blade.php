@@ -23,7 +23,7 @@
                   <input class="btn btn-secondary" role="button" value="Retornar" type="submit" ></input>
               </form>
             </div>
-            <form class="my-3" method="POST" action="{{ url('/postagem/'.$postagem->id)}}">
+            <form class="my-3" method="POST" action="{{ url('/postagem/'.$postagem->id)}}" enctype="multipart/form-data">
               @method('PUT')
               @csrf
               <div class="text-right">
@@ -40,6 +40,8 @@
                     @endif
                     @endforeach
                   </select>
+                <label for="Imagem" class="form-label">Insira a Imagem:</label>
+                <input type="file" name="imagem">
                 <label for="titulo" class="form-label">Digite o titulo:</label>
                 <input placeholder="{{$postagem->titulo}}" type="text" class="form-control" id="exampleInputEmail1" name="titulo">
                 <label for="conteudo">Digite o conteúdo</label>

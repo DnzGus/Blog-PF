@@ -6,6 +6,8 @@ use App\Models\Postagem;
 use Illuminate\Http\Request;
 use App\Models\Categoria;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
+
 
 
 class PostagemController extends Controller
@@ -34,8 +36,12 @@ class PostagemController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request->all());
+        $contents = $request->file('imagem');
+        // dd(base64_encode($contents));
         $validated = $request->validate([
             'categoria_id' => 'required',
+            'imagem' => 'mimes:jpg,bmp,png',
             'titulo' => 'required|min:5',
             'conteudo' => 'required|min:5',
             ]);
@@ -43,6 +49,9 @@ class PostagemController extends Controller
         $postagem = new Postagem();
         $postagem->categoria_id = $request->categoria_id;
         $postagem->user_id = Auth::id();
+        if($contents){
+            $postagem->imagem = base64_encode(file_get_contents($contents));
+        }
         $postagem->titulo = $request->titulo;
         $postagem->conteudo = $request->conteudo;
         $postagem->save();
@@ -75,8 +84,12 @@ class PostagemController extends Controller
      */
     public function update(Request $request, string $id)
     {
+                // dd($request->all());
+        $contents = $request->file('imagem');
+        // dd(base64_encode($contents));
         $validated = $request->validate([
-            'categoria_id' => 'required|',
+            'categoria_id' => 'required',
+            'imagem' => 'mimes:jpg,bmp,png',
             'titulo' => 'required|min:5',
             'conteudo' => 'required|min:5',
             ]);
@@ -84,6 +97,9 @@ class PostagemController extends Controller
         $postagem = Postagem::find($id);
         $postagem->categoria_id = $request->categoria_id;
         $postagem->user_id = Auth::id();
+        if($contents){
+            $postagem->imagem = base64_encode(file_get_contents($contents));
+        }
         $postagem->titulo = $request->titulo;
         $postagem->conteudo = $request->conteudo;
         $postagem->save();

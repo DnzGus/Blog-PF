@@ -15,11 +15,13 @@ return new class extends Migration
             $table->id();
             $table->bigInteger('categoria_id');
             $table->bigInteger('user_id');
+            $table->longText('imagem')->nullable();
             $table->string('titulo');
             $table->longText('conteudo');
             $table->timestamps();
         });
     }
+
 
     /**
      * Reverse the migrations.

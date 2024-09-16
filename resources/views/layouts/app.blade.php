@@ -21,8 +21,8 @@
 						<h1><a href="index.html">Future Imperfect</a></h1>
 						<nav class="links">
 							<ul>
-								<li><a href="#">Lorem</a></li>
-								<li><a href="#">Ipsum</a></li>
+								<li><a href="{{url("/categoria")}}">categoria</a></li>
+								<li><a href="{{url("/postagem")}}">postagem</a></li>
 								<li><a href="#">Feugiat</a></li>
 								<li><a href="#">Tempus</a></li>
 								<li><a href="#">Adipiscing</a></li>
@@ -57,14 +57,14 @@
 							<section>
 								<ul class="links">
 									<li>
-										<a href="#">
-											<h3>Lorem ipsum</h3>
+										<a href="{{url("/categoria")}}">
+											<h3>Categoria</h3>
 											<p>Feugiat tempus veroeros dolor</p>
 										</a>
 									</li>
 									<li>
-										<a href="#">
-											<h3>Dolor sit amet</h3>
+										<a href="{{url("/postagem")}}">
+											<h3>Postagem</h3>
 											<p>Sed vitae justo condimentum</p>
 										</a>
 									</li>

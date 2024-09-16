@@ -37,7 +37,10 @@
                                 </tr>
                             </tbody>
                         </table>
-        </div>
+                        tt
+                        <img src="data:image/png;base64,{{ $postagem->imagem }}" alt="" />
+                        tt
+                    </div>
     </div>
 </div>
 @endsection
