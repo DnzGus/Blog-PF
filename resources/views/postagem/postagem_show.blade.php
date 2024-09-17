@@ -37,9 +37,11 @@
                                 </tr>
                             </tbody>
                         </table>
-                        tt
+                        @if($postagem->imagem)
                         <img src="data:image/png;base64,{{ $postagem->imagem }}" alt="" />
-                        tt
+                        @else
+                        <p>sem imagem</p>
+                        @endif
                     </div>
     </div>
 </div>

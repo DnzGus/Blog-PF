@@ -5,7 +5,7 @@
 <article class="post">
 								<header>
 									<div class="title">
-										<h2><a href="#">{{$value->titulo}}</a></h2>
+										<h2><a href="{{url('/postagem/' . $value->id)}}">{{$value->titulo}}</a></h2>
 									</div>
 									<div class="meta">
 										<time class="published" datetime="{{$value->created_at}}">{{$value->created_at}}</time>
