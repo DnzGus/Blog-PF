@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Postagem;
 use Illuminate\Http\Request;
 
+
 class FeedController extends Controller
 {
     /**
