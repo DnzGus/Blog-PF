@@ -18,11 +18,11 @@
 
 				<!-- Header -->
 					<header id="header">
-						<h1><a href="index.html">Future Imperfect</a></h1>
+						<h1><a href="{{url('/')}}">Future Imperfect</a></h1>
 						<nav class="links">
 							<ul>
-								<li><a href="{{url("/categoria")}}">categoria</a></li>
-								<li><a href="{{url("/postagem")}}">postagem</a></li>
+								<li><a href="{{url('/feed/categoria/')}}">categoria</a></li>
+								<li><a href="{{url('/feed/autor/')}}">autores</a></li>
 								<li><a href="#">Feugiat</a></li>
 								<li><a href="#">Tempus</a></li>
 								<li><a href="#">Adipiscing</a></li>

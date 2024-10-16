@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Postagem;
+use App\Models\Categoria;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 
@@ -13,55 +15,31 @@ class FeedController extends Controller
      */
     public function index()
     {
-        $postagens = Postagem::all();
+        $postagens = Postagem::orderBy('id','DESC')->get();
         return view('welcome', compact('postagens'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    public function categoria()
     {
-        //
+        $categorias = Categoria::orderBy('name', 'ASC')->get();
+        return view('feed.categoria', compact('categorias'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
+    public function categoriaById(string $id)
     {
-        //
+        $postagens = Postagem::where('categoria_id', $id)->orderBy('id', 'DESC')->get();
+        return view('feed.categoriaById', compact('postagens'));
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
+    public function autor()
     {
-        //
+        $autores = User::orderBy('name', 'ASC')->get();
+        return view('feed.autor', compact('autores'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
+    public function autorById(string $id)
     {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
+        $postagens = Postagem::where('user_id', $id)->orderBy('id', 'DESC')->get();
+        return view('feed.autorById', compact('postagens'));
     }
 }
